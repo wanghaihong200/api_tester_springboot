@@ -1,0 +1,48 @@
+{
+  "responses": [
+    {
+      "_shards": {
+        "total": 1,
+        "failed": 0,
+        "successful": 1,
+        "skipped": 0
+      },
+      "hits": {
+        "hits": [],
+        "total": 0,
+        "max_score": 0
+      },
+      "sqls": [
+        "filter agg超时异常(80ms),executeSql=[clientIp msearch_q0979e0602dcca4840535de84e6e44d82first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748 query agg by byCk, sqlMd5=fd587f6c2c938851ad481fce16ab0055 ,executeSql=SELECT count(1)/0.002020 as `超时异常(80ms)__ckCount`  FROM ops_tlblog_new_all PREWHERE ((`host` = 'shield.17usoft.com') AND (`host` = 'shield.17usoft.com')) AND ((`__A__timestamp` <= 1690387200000 AND `__A__timestamp` >= 1690300800000)) AND ( (  `upstream_response_time`  >80 ) ) AND (ck_assembly_sample <= 21) AND ('[B@41294f8first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748[B@41294f8' = '[B@41294f8first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748[B@41294f8')]",
+        "filter agg系统异常,executeSql=[clientIp msearch_q0979e0602dcca4840535de84e6e44d82first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748 query agg by byCk, sqlMd5=2b863841c1833ec3fb4565004e38903a ,executeSql=SELECT count(1)/0.002020 as `系统异常__ckCount`  FROM ops_tlblog_new_all PREWHERE ((`host` = 'shield.17usoft.com') AND (`host` = 'shield.17usoft.com')) AND ((`__A__timestamp` <= 1690387200000 AND `__A__timestamp` >= 1690300800000)) AND ( (  `up_status` like '%500%' ) ) AND (ck_assembly_sample <= 21) AND ('[B@41294f8first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748[B@41294f8' = '[B@41294f8first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748[B@41294f8')]",
+        "filter agg正常流量,executeSql=[clientIp msearch_q0979e0602dcca4840535de84e6e44d82first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748 query agg by byCk, sqlMd5=8e6e442278eff8845f4a1601478c2cbd ,executeSql=SELECT count(1)/0.002020 as `正常流量__ckCount`  FROM ops_tlblog_new_all PREWHERE ((`host` = 'shield.17usoft.com') AND (`host` = 'shield.17usoft.com')) AND ((`__A__timestamp` <= 1690387200000 AND `__A__timestamp` >= 1690300800000)) AND ( (  `upstream_response_time`  <=80 AND NOT  `up_status` like '%500%' ) ) AND (ck_assembly_sample <= 21) AND ('[B@41294f8first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748[B@41294f8' = '[B@41294f8first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748[B@41294f8')]"
+      ],
+      "took": 1915,
+      "timed_out": false,
+      "aggregations": {
+        "2": {
+          "buckets": {
+            "超时异常(80ms)": {
+              "doc_count": 509900,
+              "key": "超时异常(80ms)_超时异常(80ms)"
+            },
+            "系统异常": {
+              "doc_count": 0,
+              "key": "系统异常_系统异常"
+            },
+            "正常流量": {
+              "doc_count": 809867326,
+              "key": "正常流量_正常流量"
+            }
+          }
+        }
+      },
+      "status": 200
+    }
+  ],
+  "commonSqls": [
+    "first search query totalCount value=743883102,uuid msearch_q0979e0602dcca4840535de84e6e44d82first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748 query by byCk ,hashcode =7922e8967f509b31896c3c8cb844ce4e,with executeSql=SELECT count(1) as _count FROM ops_tlblog_new_all PREWHERE ((`host` = 'shield.17usoft.com') AND (`host` = 'shield.17usoft.com')) AND ((`__A__timestamp` <= 1690387200000 AND `__A__timestamp` >= 1690300800000)) AND ('[B@41294f8first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748[B@41294f8' = '[B@41294f8first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748[B@41294f8')"
+  ],
+  "proxyId": "first_proxy_ip10.22.33.14_p1690387200000_t_1690424046748"
+}
+

@@ -1,0 +1,121 @@
+server:
+  port: 8089
+
+spring:
+  autoconfigure:
+    exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
+
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    driverClass: com.mysql.jdbc.Driver
+    initialSize: 5
+    maxPoolPreparedStatementPerConnectionSize: 20
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 300000
+    poolPreparedStatements: true
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1 FROM DUAL
+    dynamic:
+      primary: fraud
+      datasource:
+        fraud:
+          driver-class-name: com.mysql.jdbc.Driver
+          password:
+          url:
+          username:
+        ice:
+          driver-class-name: com.mysql.jdbc.Driver
+          password:
+          url:
+          username:
+        tcrcMarketing:
+          driver-class-name: com.mysql.jdbc.Driver
+          password:
+          url:
+          username:
+        tcrcNamelist:
+          driver-class-name: com.mysql.jdbc.Driver
+          password:
+          url:
+          username:
+        tcrcriskPlatform:
+          driver-class-name: com.mysql.jdbc.Driver
+          password:
+          url:
+          username:
+        tcrcStorageData:
+          driver-class-name: com.mysql.jdbc.Driver
+          password:
+          url:
+          username:
+        tcrcTatisticsData:
+          driver-class-name: com.mysql.jdbc.Driver
+          password:
+          url:
+          username:
+
+  kafka:
+    marketing-topic:
+
+    group-ids:
+      marketing:
+
+
+swagger:
+  enabled: true
+
+redission:
+  active: test
+
+mybatis-plus:
+  # xml位置扫描
+  mapper-locations: classpath*:mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.tester.api_tester_springboot.model.db
+  check-config-location: true
+  configuration:
+    #是否开启自动驼峰命名规则（camel case）映射
+    map-underscore-to-camel-case: true
+    # 打印sql语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+logging:
+  level:
+    com.ly.frauddataplatform.dao.mapper.namelist: debug
+
+sms:
+  inner:
+    #内部邮件地址
+    url:
+    marketing:
+      #多个用逗号分开
+      address:
+
+wechat:
+  notice:
+    key:
+    url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send
+    active: false
+
+
+risk-system:
+  gallery:
+  poseidon:
+  nameList:
+  fraudDataPlatform:
+  platformSZ:
+  plane:
+  augur:
+  member:
+
+shield:
+  kibana:
+
+management:
+  health:
+    redis:
+      enabled: false

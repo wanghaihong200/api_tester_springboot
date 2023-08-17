@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tester.api_tester_springboot.model.db.mapper.TestResultSummaryMapper">
+
+    <resultMap id="BaseResultMap" type="com.tester.api_tester_springboot.model.db.domain.TestResultSummary">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="runId" column="run_id" jdbcType="VARCHAR"/>
+            <result property="succeededAmount" column="succeeded_amount" jdbcType="VARCHAR"/>
+            <result property="failedAmount" column="failed_amount" jdbcType="VARCHAR"/>
+            <result property="skippedAmount" column="skipped_amount" jdbcType="VARCHAR"/>
+            <result property="status" column="status" jdbcType="VARCHAR"/>
+            <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+            <result property="operator" column="operator" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,run_id,succeeded_amount,
+        failed_amount,skipped_amount,status,
+        start_time,end_time,operator
+    </sql>
+</mapper>

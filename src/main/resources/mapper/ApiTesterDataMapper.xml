@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tester.api_tester_springboot.model.db.mapper.ApiTesterDataMapper">
+
+    <resultMap id="BaseResultMap" type="com.tester.api_tester_springboot.model.db.domain.tester.ApiTesterData">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="systemUk" column="system_uk" jdbcType="VARCHAR"/>
+            <result property="apiName" column="api_name" jdbcType="VARCHAR"/>
+            <result property="requestUrl" column="request_url" jdbcType="VARCHAR"/>
+            <result property="paramsJson" column="params_json" jdbcType="VARCHAR"/>
+            <result property="product" column="product" jdbcType="VARCHAR"/>
+            <result property="rule" column="rule" jdbcType="INTEGER"/>
+            <result property="token" column="token" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,system_uk,api_name,
+        request_url,params_json,product,
+        rule,token
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from api_tester_data
+        where `id` = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="queryTesterParam"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from api_tester_data
+        where system_uk = #{systemUk} and api_name = #{apiName}
+    </select>
+
+    <select id="queryTesterDataByRule"  resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from api_tester_data
+        where system_uk = #{systemUk} and rule = #{rule}
+    </select>
+    <select id="queryTesterDataByToken" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from api_tester_data
+        where system_uk = #{systemUk} and token = #{token}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from api_tester_data
+        where `id` = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.tester.api_tester_springboot.model.db.domain.tester.ApiTesterData">
+        insert into api_tester_data (`id`, `system_uk`, `api_name`,
+                                     `request_url`, `product`, `rule`,
+                                     `params_json`)
+        values (#{id,jdbcType=INTEGER}, #{systemUk,jdbcType=VARCHAR}, #{apiName,jdbcType=VARCHAR},
+                #{requestUrl,jdbcType=VARCHAR}, #{product,jdbcType=VARCHAR}, #{rule,jdbcType=INTEGER},
+                #{paramsJson,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.tester.api_tester_springboot.model.db.domain.tester.ApiTesterData">
+        insert into api_tester_data
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                `id`,
+            </if>
+            <if test="systemUk != null">
+                `system_uk`,
+            </if>
+            <if test="apiName != null">
+                `api_name`,
+            </if>
+            <if test="requestUrl != null">
+                `request_url`,
+            </if>
+            <if test="product != null">
+                `product`,
+            </if>
+            <if test="rule != null">
+                `rule`,
+            </if>
+            <if test="paramsJson != null">
+                `params_json`,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="systemUk != null">
+                #{systemUk,jdbcType=VARCHAR},
+            </if>
+            <if test="apiName != null">
+                #{apiName,jdbcType=VARCHAR},
+            </if>
+            <if test="requestUrl != null">
+                #{requestUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="product != null">
+                #{product,jdbcType=VARCHAR},
+            </if>
+            <if test="rule != null">
+                #{rule,jdbcType=INTEGER},
+            </if>
+            <if test="paramsJson != null">
+                #{paramsJson,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.tester.api_tester_springboot.model.db.domain.tester.ApiTesterData">
+        update api_tester_data
+        <set>
+            <if test="systemUk != null">
+                `system_uk` = #{systemUk,jdbcType=VARCHAR},
+            </if>
+            <if test="apiName != null">
+                `api_name` = #{apiName,jdbcType=VARCHAR},
+            </if>
+            <if test="requestUrl != null">
+                `request_url` = #{requestUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="product != null">
+                `product` = #{product,jdbcType=VARCHAR},
+            </if>
+            <if test="rule != null">
+                `rule` = #{rule,jdbcType=INTEGER},
+            </if>
+            <if test="paramsJson != null">
+                `params_json` = #{paramsJson,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where `id` = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tester.api_tester_springboot.model.db.domain.tester.ApiTesterData">
+        <!--
+          WARNING - @mbg.generated
+          This element is automatically generated by MyBatis Generator, do not modify.
+          This element was generated on Fri Aug 12 03:03:45 UTC 2022.
+        -->
+        update api_tester_data
+        set `system_uk` = #{systemUk,jdbcType=VARCHAR},
+        `api_name` = #{apiName,jdbcType=VARCHAR},
+        `request_url` = #{requestUrl,jdbcType=VARCHAR},
+        `product` = #{product,jdbcType=VARCHAR},
+        `rule` = #{rule,jdbcType=INTEGER},
+        `params_json` = #{paramsJson,jdbcType=LONGVARCHAR}
+        where `id` = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.tester.api_tester_springboot.model.db.domain.tester.ApiTesterData">
+        update api_tester_data
+        set `system_uk` = #{systemUk,jdbcType=VARCHAR},
+            `api_name` = #{apiName,jdbcType=VARCHAR},
+            `request_url` = #{requestUrl,jdbcType=VARCHAR},
+            `product` = #{product,jdbcType=VARCHAR},
+            `rule` = #{rule,jdbcType=INTEGER}
+        where `id` = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

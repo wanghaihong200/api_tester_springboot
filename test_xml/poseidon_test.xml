@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="返现风控测试套件" parallel="classes" thread-count="2">
+
+    <!-- 测试CASE配置 -->
+
+    <parameter name="runId" value="${runId}"/>
+
+    <test name="返现">
+        <classes>
+            <!-- 返现 -->
+            <class name="com.tester.api_tester_springboot.poseidon.CashBackTest"/>
+
+        </classes>
+    </test>
+</suite>
+
+

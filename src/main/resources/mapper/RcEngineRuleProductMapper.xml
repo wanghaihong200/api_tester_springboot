@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tester.api_tester_springboot.model.db.mapper.storage.RcEngineRuleProductMapper">
+
+    <resultMap id="BaseResultMap" type="com.tester.api_tester_springboot.model.db.domain.storage.RcEngineRuleProduct">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="uniqueId" column="unique_id" jdbcType="VARCHAR"/>
+            <result property="sourceName" column="source_name" jdbcType="VARCHAR"/>
+            <result property="traceId" column="trace_id" jdbcType="VARCHAR"/>
+            <result property="actionTime" column="action_time" jdbcType="TIMESTAMP"/>
+            <result property="ruleFlowName" column="rule_flow_name" jdbcType="VARCHAR"/>
+            <result property="engineLogId" column="engine_log_id" jdbcType="BIGINT"/>
+            <result property="env" column="env" jdbcType="VARCHAR"/>
+            <result property="ruleFlowVersionId" column="rule_flow_version_id" jdbcType="BIGINT"/>
+            <result property="rules" column="rules" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="operator" column="operator" jdbcType="VARCHAR"/>
+            <result property="createUser" column="create_user" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,unique_id,source_name,
+        trace_id,action_time,rule_flow_name,
+        engine_log_id,env,rule_flow_version_id,
+        rules,create_time,update_time,
+        operator,create_user
+    </sql>
+</mapper>

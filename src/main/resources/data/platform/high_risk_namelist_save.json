@@ -1,0 +1,16 @@
+{
+  "product": "1",
+  "project": "102",
+  "service": "1",
+  "checkField": "8",
+  "checkValue": "111",
+  "riskType": "HR001",
+  "riskLevel": "3",
+  "orderId": "",
+  "state": 1,
+  "description": "测试添加",
+  "checkValues": [
+    "111"
+  ],
+  "operator": "tester-1207663"
+}

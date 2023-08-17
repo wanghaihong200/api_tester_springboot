@@ -1,0 +1,94 @@
+{
+  "extendData": {
+    "marketingFlowConf": {
+      "sceneCode": "marketingTag-test"
+    },
+    "result": {
+      "factors": [],
+      "factorFormula": "",
+      "result": ""
+    },
+    "tagResultList": {
+      "stateEnum": "VALID",
+      "blackNameList": {
+        "finalValue": "1",
+        "finalValueDesc": "黑名单，拒绝"
+      },
+      "whiteNameList": {
+        "finalValue": "0",
+        "finalValueDesc": "白名单，通过"
+      },
+      "defaultFinalLevel": "0",
+      "levelDesc": "无风险，通过",
+      "finalResults": [
+        {
+          "order": "1",
+          "name": "规则说明",
+          "factorFormula": "a1||a2||a3||a4||a5||a6",
+          "finalValue": "1",
+          "finalValueDesc": "有风险，拦截",
+          "factors": [
+            {
+              "row": "a1",
+              "riskTag": "tag.riskHighUserLevel",
+              "type": "riskLevel",
+              "calcType": "eq",
+              "calcValue": "1"
+            },
+            {
+              "row": "a2",
+              "riskTag": "tag.machineBehaviorLevel",
+              "type": "riskLevel",
+              "calcType": "gte",
+              "calcValue": "3"
+            },
+            {
+              "row": "a3",
+              "riskTag": "tag.scalperUserLevel",
+              "type": "riskLevel",
+              "calcType": "gte",
+              "calcValue": "3"
+            },
+            {
+              "row": "a4",
+              "riskTag": "tag.riskAccountLevel",
+              "type": "riskLevel",
+              "calcType": "gte",
+              "calcValue": "3"
+            },
+            {
+              "row": "a5",
+              "riskTag": "tag.aggregationAccountLevel",
+              "type": "riskLevel",
+              "calcType": "gte",
+              "calcValue": "3"
+            },
+            {
+              "row": "a6",
+              "riskTag": "tag.associatedAccountLevel",
+              "type": "riskLevel",
+              "calcType": "gte",
+              "calcValue": "3"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "accessId": "1557320290750140416",
+  "marketingBg": "3",
+  "description": "第三方士大夫更丰富",
+  "channel": "852,501,201,301",
+  "expectRequestCount": "999",
+  "marketingTagEnums": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "operator": "王海虹-1207663"
+}

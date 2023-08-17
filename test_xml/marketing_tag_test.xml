@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="风险标签测试套件" parallel="classes" thread-count="2">
+    <listeners>
+        <!--添加用例失败重试监听器-->
+        <listener class-name="com.tester.api_tester_springboot.core.handler.TestRetryListener">
+        </listener>
+    </listeners>
+
+    <!-- 测试CASE配置 -->
+
+    <parameter name="runId" value="${runId}"/>
+
+    <test name="gallery风险标签">
+        <classes>
+            <!-- 风险标签 -->
+            <!--<class name="com.tester.api_tester_springboot.gallery.MarketingTagTest"/>-->
+            <!--决策流引擎测试-->
+            <!--<class name="com.tester.api_tester_springboot.augur.AugurTest"/>-->
+            <class name="com.tester.api_tester_springboot.personal.DailyTest"/>
+        </classes>
+    </test>
+</suite>
+
+
